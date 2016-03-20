@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Personas>
+	<persona nacionalidad="Mexicana">
+		<nombre>Michael</nombre>
+  		<apellido>Duarte</apellido>
+  		<edad>20</edad>
+	</persona>
+	<persona nacionalidad="Mexicana">
+		<nombre>Bianca</nombre>
+  		<apellido>Moya</apellido>
+  		<edad>20</edad>
+	</persona>
+	<persona nacionalidad="Americana">
+		<nombre>Barak</nombre>
+  		<apellido>Obama</apellido>
+  		<edad>23</edad>
+	</persona>
+</Personas> 
