@@ -11,7 +11,7 @@ public class IndexedContainer {
 	JScrollPane js=new JScrollPane(jt);
 	String[] vector=new String[500];
 
-	final static String FileName = "Aniversario2.txt";
+	final static String FileName = "aniversario2/Aniversario2.txt";
 	final static String OptionText = "Opcion a Elegir:\n1) Mostrar\n2)Llenar\n3)Leer de Archivo\n4)Borrar Archivo\n5)Salir";
 	final static String MessageIndexText = "Indice de Post-it\n(0 para salir)";
 	final static String IncorrectOptionText = "Opcion Incorrecta";
@@ -55,12 +55,15 @@ public class IndexedContainer {
 	public void mostrarYguardar(){
 		String cadena="";
 		try{
-			DataOutputStream escritor=new DataOutputStream(new FileOutputStream(FileName, true));
+			boolean concatenar = false;
+			DataOutputStream escritor=new DataOutputStream(new FileOutputStream(FileName, concatenar));
 			for (int i=0;i<vector.length;i++){
 				if(vector[i]!=null){
 					cadena=" "+vector[i];
 					jt.append(cadena);
-					escritor.writeBytes(String.format("%03d %s%n",i,cadena);
+					if(i%15 == 0)
+						jt.append("\n");
+					escritor.writeBytes(String.format("%03d%s%n",i,cadena));
 				}
 			}
 			escritor.close();
@@ -82,7 +85,7 @@ public class IndexedContainer {
 				vector[indice]=mensaje;
 			}
 			lector.close();
-			JOptionPane.showMessageDialog(null,lineasTotales + MensajesLeídosText);
+			JOptionPane.showMessageDialog(null,MensajesLeídosText + lineasTotales);
 		}catch(Exception e){}
 	}
 
