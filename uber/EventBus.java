@@ -64,7 +64,7 @@ public final class EventBus {
 
     public synchronized void unregister(String eventName, Listener listener) {
         HashSet<Listener> set = m_listeners.get(eventName);
-        if (set == null || set.contains(listener))
+        if (set == null || !set.contains(listener))
             return;
 
         // if we reach this point, we are sure we have that item, lets erase it.
